@@ -41,6 +41,8 @@
 #include "JudgeTask.h"
 #include "UpperTask.h"
 
+#include "math.h"
+
 #define uart_num 4
 
 

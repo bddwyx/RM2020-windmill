@@ -25,7 +25,7 @@ void ControlGM(MotorINFO *id);
 //**********************************************************************
 //				Chassis_MOTORINFO_Init(func,spid)
 //**********************************************************************
-MotorINFO CMFL = Chassis_MOTORINFO_Init(&ControlCM,CHASSIS_MOTOR_SPEED_PID_DEFAULT);
+//MotorINFO CMFL = Chassis_MOTORINFO_Init(&ControlNM,CHASSIS_MOTOR_ROTATE_PID_DEFAULT);
 MotorINFO CMFR = Chassis_MOTORINFO_Init(&ControlCM,CHASSIS_MOTOR_SPEED_PID_DEFAULT);
 MotorINFO CMBL = Chassis_MOTORINFO_Init(&ControlCM,CHASSIS_MOTOR_SPEED_PID_DEFAULT);
 MotorINFO CMBR = Chassis_MOTORINFO_Init(&ControlCM,CHASSIS_MOTOR_SPEED_PID_DEFAULT);
@@ -45,6 +45,10 @@ MotorINFO GMY  = Pantilt_MOTORINFO_Init(GM_YAW_ZERO,&ControlGM,
 //*************************************************************************
 //demo
 MotorINFO M2006 = Normal_MOTORINFO_Init(36.0,&ControlNM,
+                 fw_PID_INIT(30.0, 0.0, 0.0, 	1080.0, 1080.0, 1080.0, 1080.0),
+								fw_PID_INIT(30, 0.0, 0.0, 		10000.0, 10000.0, 10000.0, 10000.0));
+				
+MotorINFO CMFL = Normal_MOTORINFO_Init(19.0,&ControlNM,
                  fw_PID_INIT(30.0, 0.0, 0.0, 	1080.0, 1080.0, 1080.0, 1080.0),
 								fw_PID_INIT(30, 0.0, 0.0, 		10000.0, 10000.0, 10000.0, 10000.0));
 

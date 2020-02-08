@@ -54,3 +54,4 @@
 .\rm_frame\imutask.o: ../Tasks/Inc/ManifoldTask.h
 .\rm_frame\imutask.o: ../Tasks/Inc/JudgeTask.h
 .\rm_frame\imutask.o: ../Tasks/Inc/UpperTask.h
+.\rm_frame\imutask.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

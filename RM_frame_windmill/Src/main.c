@@ -142,7 +142,7 @@ int main(void)
 	InitMPU6500();
 	Motor_ID_Setting();
 	for(int i=0;i<8;i++) {InitMotor(can1[i]);InitMotor(can2[i]);}
-	InitPWM();
+	//InitPWM();
 	InitCanReception();
 	HAL_GPIO_WritePin(GPIOH,GPIO_PIN_2,GPIO_PIN_SET);
 	HAL_GPIO_WritePin(GPIOH,GPIO_PIN_3,GPIO_PIN_SET);
@@ -175,8 +175,7 @@ int main(void)
 	#endif
 	
 	for(current = 0;current < uart_num;current++) HAL_UART_Receive_IT(uartlist[current], &rec, sizeof(rec));
-	for(current = 0;current < uart_num;current++) HAL_UART_Transmit_IT(uartlist[current], &ch0, sizeof(ch0)); //å¼?æœ?
-	//HAL_UART_Transmit_IT(&huart8, "Hello!", sizeof("Hello!"));
+	for(current = 0;current < uart_num;current++) while(HAL_OK != HAL_UART_Transmit_IT(uartlist[current], &ch0 ,sizeof(ch0))); 
 	
   /* USER CODE END 2 */
 
@@ -191,7 +190,7 @@ int main(void)
   	for(current = 0; (current < uart_num) && !isFailed; ++current)
   	{
   		isFailed = isWaiting = hasReceived = rec = 0;
-	  	HAL_UART_Transmit_IT(uartlist[current], &ch1, sizeof(ch1));
+	  	while(HAL_OK != HAL_UART_Transmit_IT(uartlist[current], &ch1, sizeof(ch1)));
 		  isWaiting = 1;
 /*		counter = 1250;
 		  htim6.Instance->CNT = 0;*/

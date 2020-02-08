@@ -35,6 +35,8 @@ void playMusicSuperMario(void){
 //状态机切换
 void WorkStateFSM(void)
 {
+	static uint8_t as2_first_enter = 0;
+	
 	switch (WorkState)
 	{
 		case PREPARE_STATE:				//准备模式
@@ -57,15 +59,19 @@ void WorkStateFSM(void)
 				if(functionmode == MIDDLE_POS) WorkState = ADDITIONAL_STATE_ONE;
 				if(functionmode == LOWER_POS) WorkState = ADDITIONAL_STATE_TWO;
 			}
+			
+			as2_first_enter = 1;
 		}break;
 		case ADDITIONAL_STATE_ONE:		//附加模式一
-		{
+		{			
 			if (inputmode == STOP) WorkState = STOP_STATE;
 			if (inputmode == REMOTE_INPUT)
 			{
 				if(functionmode == UPPER_POS) WorkState = NORMAL_STATE;
 				if(functionmode == LOWER_POS) WorkState = ADDITIONAL_STATE_TWO;
 			}
+			
+			as2_first_enter = 1;
 		}break;
 		case ADDITIONAL_STATE_TWO:		//附加模式二
 		{
@@ -75,6 +81,11 @@ void WorkStateFSM(void)
 				if(functionmode == UPPER_POS) WorkState = NORMAL_STATE;
 				if(functionmode == MIDDLE_POS) WorkState = ADDITIONAL_STATE_ONE;
 			}
+			
+			if(as2_first_enter)
+			{
+				as2_first_enter = 0;
+			}
 		}break;
 		case STOP_STATE:				//紧急停止
 		{
@@ -82,7 +93,7 @@ void WorkStateFSM(void)
 			setCAN11();setCAN12();setCAN21();setCAN22();
 			if (inputmode == REMOTE_INPUT || inputmode == KEY_MOUSE_INPUT)
 			{
-				WorkState = PREPARE_STATE;
+				WorkState = NORMAL_STATE;
 				FunctionTaskInit();
 			}
 		}break;
@@ -96,31 +107,56 @@ void ControlRotate(void)
 	ChassisSpeedRef.rotate_ref = CMRotatePID.output * 13 + ChassisSpeedRef.forward_back_ref * 0.01 + ChassisSpeedRef.left_right_ref * 0.01;
 }
 
-void Chassis_Data_Decoding()
+void Chassis_Data_Decoding(uint16_t tim6_count)
 {
-	ControlRotate();
-	CMFL.TargetAngle = (  -ChassisSpeedRef.forward_back_ref	*0.075 
+//	ControlRotate();
+	switch(inputmode)
+	{
+		case REMOTE_INPUT: 
+			switch(WorkState)
+			{
+				case NORMAL_STATE:
+				   CMFL.TargetAngle += 0.06; break;
+				case ADDITIONAL_STATE_ONE:
+					 CMFL.TargetAngle += (0.785 * sin(1.884 * tim6_count / 1000) + 1.305) * 360 / 6.2832 / 1000; break;
+			  default: ;
+			}
+			break;
+		case KEY_MOUSE_INPUT:
+			switch(WorkState)
+			{
+				case NORMAL_STATE:
+				   CMFL.TargetAngle -= 0.06; break;
+				case ADDITIONAL_STATE_ONE:
+					 CMFL.TargetAngle -= (0.785 * sin(1.884 * tim6_count / 1000) + 1.305) * 360 / 6.2832 / 1000; break;
+			  default: ;
+			}
+			break;
+		default : ;
+	}
+	
+	/*(  -ChassisSpeedRef.forward_back_ref	*0.075 
 						+ ChassisSpeedRef.left_right_ref	*0.075 
 						+ ChassisSpeedRef.rotate_ref		*0.075)*160;
 	CMFR.TargetAngle = ( ChassisSpeedRef.forward_back_ref	*0.075 
 						+ ChassisSpeedRef.left_right_ref	*0.075 
-						+ ChassisSpeedRef.rotate_ref		*0.075)*16;
+						+ ChassisSpeedRef.rotate_ref		*0.075)*160;
 	CMBL.TargetAngle = (  ChassisSpeedRef.forward_back_ref	*0.075 
 						- ChassisSpeedRef.left_right_ref	*0.075 
-						+ ChassisSpeedRef.rotate_ref		*0.075)*16;
+						+ ChassisSpeedRef.rotate_ref		*0.075)*160;
 	CMBR.TargetAngle = ( -ChassisSpeedRef.forward_back_ref	*0.075 
 						- ChassisSpeedRef.left_right_ref	*0.075 
-						+ ChassisSpeedRef.rotate_ref		*0.075)*16;
+						+ ChassisSpeedRef.rotate_ref		*0.075)*160;*/
 }
 
 //主控制循环
-void controlLoop()
+void controlLoop(uint16_t tim6_count)
 {
 	WorkStateFSM();
 	
 	if(WorkState > 0)
 	{
-		Chassis_Data_Decoding();
+		Chassis_Data_Decoding(tim6_count);
 		
 		#ifdef CAN11
 		for(int i=0;i<4;i++) if(can1[i]!=0) (can1[i]->Handle)(can1[i]);
@@ -144,12 +180,16 @@ void controlLoop()
 //时间中断入口函数
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-	if (htim->Instance == htim6.Instance)//2ms时钟`
+	static uint16_t tim6_count=0;
+	
+	if (htim->Instance == htim6.Instance)//1ms时钟`
 	{
 		HAL_NVIC_DisableIRQ(TIM6_DAC_IRQn);
 		
+		tim6_count++;
+		tim6_count %= 3335; //3335=2π/1.884*1000
 		//主循环在时间中断中启动
-		controlLoop();
+		controlLoop(tim6_count);
 		
 		HAL_NVIC_EnableIRQ(TIM6_DAC_IRQn);
 	}

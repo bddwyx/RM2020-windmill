@@ -54,3 +54,4 @@
 .\rm_frame\manifoldtask.o: ../Tasks/Inc/ManifoldTask.h
 .\rm_frame\manifoldtask.o: ../Tasks/Inc/JudgeTask.h
 .\rm_frame\manifoldtask.o: ../Tasks/Inc/UpperTask.h
+.\rm_frame\manifoldtask.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

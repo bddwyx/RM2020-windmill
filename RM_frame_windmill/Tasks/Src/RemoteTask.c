@@ -18,7 +18,7 @@ FunctionMode_e functionmode = UPPER_POS;
 
 RemoteSwitch_t g_switch1;
 
-extern UART_HandleTypeDef **uartlist;
+extern UART_HandleTypeDef* uartlist[];
 extern int *randlist;
 extern int current, hasReceived, isFailed;
 extern uint8_t rec;
@@ -152,17 +152,18 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *UartHandle)
 		return;
 	}
 	
-	uint16_t i;
+	uint8_t index;
 	
-	for(i = 0; i < uart_num; ++i)     
+	for(index = 0; index < uart_num; ++index)     
 	{
-		if(UartHandle == uartlist[i]) 
+		if(UartHandle == uartlist[index]) 
 		{
-			HAL_UART_Receive_IT(uartlist[i], &rec, sizeof(rec));
+			HAL_UART_Receive_IT(uartlist[index], &rec, sizeof(rec));
+			while(HAL_OK != HAL_UART_Transmit(uartlist[index], "haha", sizeof("haha"),1000));
 			
 			if(rec == '1')
 			{
-				if(i == current)
+				if(index == current)
 				{
 					hasReceived=1;
 			    return;
@@ -174,24 +175,10 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *UartHandle)
 				}
 			}
 			else isFailed=1;
+		index++;
+		--index;
 		}
 	}
-	
-/*	if(i < 4)
-	{
-		if(i == current)
-	  {
-		  if(rec == '1')
-	    {
-				hasReceived = 1;
-  			return;
-			}
-			isFailed = 1;
-			return;
-    }
-		
-		else 
-	}*/
 	
 /*	else if(UartHandle == &MANIFOLD_UART)
 	{
@@ -205,3 +192,15 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *UartHandle)
 		judgeUartRxCpltCallback();  //裁判系统数据解算
 	}*/
 }   
+
+void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
+{
+  /* Prevent unused argument(s) compilation warning */
+	if(huart->ErrorCode&HAL_UART_ERROR_ORE)
+	{
+		__HAL_UART_CLEAR_OREFLAG(huart);
+	}
+  /* NOTE : This function should not be modified, when the callback is needed,
+            the HAL_UART_ErrorCallback can be implemented in the user file.
+   */
+}

@@ -54,5 +54,6 @@
 .\rm_frame\judgetask.o: ../Tasks/Inc/ManifoldTask.h
 .\rm_frame\judgetask.o: ../Tasks/Inc/JudgeTask.h
 .\rm_frame\judgetask.o: ../Tasks/Inc/UpperTask.h
+.\rm_frame\judgetask.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\rm_frame\judgetask.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\rm_frame\judgetask.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

@@ -53,10 +53,10 @@ void RemoteControlProcess(Remote *rc)
 {
 	if(WorkState <= 0) return;
 	//max=297
-	channelrrow = 116;//(rc->ch0 - (int16_t)REMOTE_CONTROLLER_STICK_OFFSET); 
-	channelrcol = 116;//(rc->ch1 - (int16_t)REMOTE_CONTROLLER_STICK_OFFSET); 
-	channellrow = 116;//(rc->ch2 - (int16_t)REMOTE_CONTROLLER_STICK_OFFSET); 
-	channellcol = 116;//(rc->ch3 - (int16_t)REMOTE_CONTROLLER_STICK_OFFSET); 
+	channelrrow = (rc->ch0 - (int16_t)REMOTE_CONTROLLER_STICK_OFFSET); 
+	channelrcol = (rc->ch1 - (int16_t)REMOTE_CONTROLLER_STICK_OFFSET); 
+	channellrow = (rc->ch2 - (int16_t)REMOTE_CONTROLLER_STICK_OFFSET); 
+	channellcol = (rc->ch3 - (int16_t)REMOTE_CONTROLLER_STICK_OFFSET); 
 ////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////主要功能在这里编写
 	

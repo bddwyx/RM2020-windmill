@@ -1,7 +1,7 @@
 [PreviousGenFiles]
-HeaderPath=C:/Users/admin/Desktop/RM_frame_windmill/Inc
+HeaderPath=F:/git/RM2020-windmill/RM_frame_windmill/Inc
 HeaderFiles=gpio.h;can.h;dma.h;spi.h;usart.h;stm32f4xx_it.h;stm32f4xx_hal_conf.h;main.h;tim.h;adc.h;iwdg.h;
-SourcePath=C:/Users/admin/Desktop/RM_frame_windmill/Src
+SourcePath=F:/git/RM2020-windmill/RM_frame_windmill/Src
 SourceFiles=gpio.c;can.c;dma.c;spi.c;usart.c;stm32f4xx_it.c;stm32f4xx_hal_msp.c;main.c;tim.c;adc.c;iwdg.c;
 
 [PreviousLibFiles]
