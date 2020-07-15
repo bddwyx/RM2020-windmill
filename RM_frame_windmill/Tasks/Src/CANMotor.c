@@ -48,14 +48,14 @@ MotorINFO M2006 = Normal_MOTORINFO_Init(36.0,&ControlNM,
                  fw_PID_INIT(30.0, 0.0, 0.0, 	1080.0, 1080.0, 1080.0, 1080.0),
 								fw_PID_INIT(30, 0.0, 0.0, 		10000.0, 10000.0, 10000.0, 10000.0));
 				
-MotorINFO CMFL = Normal_MOTORINFO_Init(19.0,&ControlNM,
+MotorINFO CMFL = Normal_MOTORINFO_Init(57.0,&ControlNM,
                  fw_PID_INIT(30.0, 0.0, 0.0, 	1080.0, 1080.0, 1080.0, 1080.0),
 								fw_PID_INIT(30, 0.0, 0.0, 		10000.0, 10000.0, 10000.0, 10000.0));
 
 
 //demo end
 
-MotorINFO* can1[8]={&CMFL,&CMFR,&CMBL,&CMBR,&M2006,0,0,0};
+MotorINFO* can1[8]={&CMFL,&CMFR ,&CMBL,&CMBR,&M2006,0,0,0};
 MotorINFO* can2[8]={0,0,0,0,0,0,0,0};
 
 
