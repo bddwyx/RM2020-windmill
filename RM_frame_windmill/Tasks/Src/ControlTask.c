@@ -25,11 +25,11 @@ PID_Regulator_t CMRotatePID = CHASSIS_MOTOR_ROTATE_PID_DEFAULT;
 extern int32_t auto_counter;
 
 void playMusicSuperMario(void){
-	HAL_TIM_PWM_Start(BUZZER_TIM, TIM_CHANNEL_1);
+	HAL_TIM_PWM_Start(&BUZZER_TIM, TIM_CHANNEL_1);
 	for(int i = 0; i < sizeof(Start) / sizeof(MusicNote); i++){
 			PLAY(Start[i].note, Start[i].time);
 	}
-	HAL_TIM_PWM_Stop(BUZZER_TIM, TIM_CHANNEL_1);
+	HAL_TIM_PWM_Stop(&BUZZER_TIM, TIM_CHANNEL_1);
 }
 
 //状态机切换

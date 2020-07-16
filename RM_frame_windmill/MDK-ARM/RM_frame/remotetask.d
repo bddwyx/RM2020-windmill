@@ -54,4 +54,7 @@
 .\rm_frame\remotetask.o: ../Tasks/Inc/ManifoldTask.h
 .\rm_frame\remotetask.o: ../Tasks/Inc/JudgeTask.h
 .\rm_frame\remotetask.o: ../Tasks/Inc/UpperTask.h
+.\rm_frame\remotetask.o: ../Tasks/Inc/WindmillTask.h
+.\rm_frame\remotetask.o: ../Tasks/Inc/MusicAutoPlay.h
+.\rm_frame\remotetask.o: ..\Middleware\Inc\mid_softTimer.h
 .\rm_frame\remotetask.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

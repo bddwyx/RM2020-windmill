@@ -54,5 +54,8 @@
 .\rm_frame\main.o: ../Tasks/Inc/ManifoldTask.h
 .\rm_frame\main.o: ../Tasks/Inc/JudgeTask.h
 .\rm_frame\main.o: ../Tasks/Inc/UpperTask.h
+.\rm_frame\main.o: ../Tasks/Inc/WindmillTask.h
+.\rm_frame\main.o: ../Tasks/Inc/MusicAutoPlay.h
+.\rm_frame\main.o: ..\Middleware\Inc\mid_softTimer.h
 .\rm_frame\main.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\rm_frame\main.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h

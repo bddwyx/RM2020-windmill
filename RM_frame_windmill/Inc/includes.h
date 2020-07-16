@@ -40,6 +40,10 @@
 #include "ManifoldTask.h"
 #include "JudgeTask.h"
 #include "UpperTask.h"
+#include "WindmillTask.h"
+#include "MusicAutoPlay.h"
+
+#include "mid_softTimer.h"
 
 #include "math.h"
 

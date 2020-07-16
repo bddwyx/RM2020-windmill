@@ -74,15 +74,15 @@ void manifoldUartRxCpltCallback() //妙算自动打击通信数据处理
 				auto_buffercnt++;
 			}
 		}
-		if(HAL_UART_Receive_DMA(&MANIFOLD_UART, &auto_attack_temp, 1) != HAL_OK)
+		/*if(HAL_UART_Receive_DMA(&MANIFOLD_UART, &auto_attack_temp, 1) != HAL_OK)
 		{
 			Error_Handler();
-	  }
+	  }*/
 }
 
 void InitManifoldUart()
 {
-	if(HAL_UART_Receive_DMA(&MANIFOLD_UART, &auto_attack_temp, 1) != HAL_OK){  //接收自动打击数据
+	/*if(HAL_UART_Receive_DMA(&MANIFOLD_UART, &auto_attack_temp, 1) != HAL_OK){  //接收自动打击数据
 		Error_Handler();
-	} 
+	} */ 
 }

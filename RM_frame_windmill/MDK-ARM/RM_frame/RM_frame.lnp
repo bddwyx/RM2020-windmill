@@ -28,6 +28,8 @@
 ".\rm_frame\judgetask.o"
 ".\rm_frame\manifoldtask.o"
 ".\rm_frame\uppertask.o"
+".\rm_frame\musicautoplay.o"
+".\rm_frame\windmilltask.o"
 ".\rm_frame\main.o"
 ".\rm_frame\gpio.o"
 ".\rm_frame\can.o"
@@ -40,5 +42,6 @@
 ".\rm_frame\stm32f4xx_hal_msp.o"
 ".\rm_frame\startup_stm32f427xx.o"
 ".\rm_frame\system_stm32f4xx.o"
+".\rm_frame\mid_softtimer.o"
 --library_type=microlib --strict --scatter ".\RM_frame\RM_frame.sct"
 --diag_suppress=L6329 --summary_stderr --info summarysizes -o .\RM_frame\RM_frame.axf
