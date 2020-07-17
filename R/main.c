@@ -24,7 +24,8 @@ void main()
 {
 	unsigned char i;
 	
-	P0M0=0XFF;P0M1=0;
+	P0M0=0X00;P0M1=0;
+	P3M0=0;P3M1=0;
 	gnd=0;key=1;
 	
 	TMOD=0X00;

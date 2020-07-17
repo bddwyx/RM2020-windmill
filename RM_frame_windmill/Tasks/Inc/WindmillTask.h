@@ -39,6 +39,7 @@
 	struct T_mill{
 		struct T_blade* blade_Info;
 		uint8_t blade_num;
+		uint8_t blade_index;
 		E_millColor e_color;
 		E_millState e_state;
 	};
@@ -46,6 +47,8 @@
 	/***	EXTERNAL VARIABLES	***/
 	
 	/***	APIs	***/
+	HAL_StatusTypeDef windmill_init(void);
+	void windmill_action(UART_HandleTypeDef* huart);
 	
 	/***	SPECIFIC INIT CONFIGURATION	***/
 	

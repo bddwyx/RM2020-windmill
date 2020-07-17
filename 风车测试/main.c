@@ -6,7 +6,7 @@
 
 #define  num 253//灯泡个数
 
-sbit DO = P0^2;//数据输出口口
+sbit DO = P0^3;//数据输出口口
 sbit key = P0^1;
 sbit gnd = P0^0;
 
