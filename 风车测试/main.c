@@ -6,7 +6,7 @@
 
 #define  num 253//灯泡个数
 
-sbit DO = P0^3;//数据输出口口
+sbit DO = P0^2;//数据输出口口
 sbit key = P0^1;
 sbit gnd = P0^0;
 
@@ -43,20 +43,23 @@ void main()
 		{
 			case 0:
 				for(i=0;i<253;i++) WS2812WR(0,0,0);
-			  break;
+				break;
 			case 1:
 				waiting();
-			  break;
+				break;
 			case 2:
-	      for(i=0;i<253;i++) 
-			  {
-	       	if(color==2) WS2812WR(0,0,250);
-		      else WS2812WR(250,0,0);
-	      }
+				for(i=0;i<253;i++) {
+					if(color==2) WS2812WR(0,0,250);
+					else WS2812WR(250,0,0);
+				}
+				
+				delays(500);
+				state = 1;
 				break;
 			case 3:
 				complete();
-			  state=0;
+				state=0;
+				break;
 		}
 		
 		delays(50);

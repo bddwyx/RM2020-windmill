@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        07/17/2020  03:35:32  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        08/11/2020  16:52:06  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
@@ -55,22 +55,22 @@ LINK MAP OF MODULE:  .\object\WS2812 (MAIN)
             CODE    0026H     0186H     UNIT         ?PR?ARRAY?LED_TASK
             CODE    01ACH     010DH     UNIT         ?C?LIB_CODE
             CODE    02B9H     008CH     UNIT         ?C_C51STARTUP
-            CODE    0345H     007CH     UNIT         ?PR?MAIN?MAIN
-            CODE    03C1H     0078H     UNIT         ?PR?_UART_CONFIG?UART1
-            CODE    0439H     0062H     UNIT         ?PR?WAITING?LED_TASK
-            CODE    049BH     004AH     UNIT         ?PR?COMPLETE?LED_TASK
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/17/2020  03:35:32  PAGE 2
+            CODE    0345H     0086H     UNIT         ?PR?MAIN?MAIN
+            CODE    03CBH     0078H     UNIT         ?PR?_UART_CONFIG?UART1
+            CODE    0443H     0062H     UNIT         ?PR?WAITING?LED_TASK
+            CODE    04A5H     004AH     UNIT         ?PR?COMPLETE?LED_TASK
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/11/2020  16:52:06  PAGE 2
 
 
-            CODE    04E5H     0049H     UNIT         ?PR?UART_INTER?UART1
-            CODE    052EH     0048H     UNIT         ?PR?_WS2812WR?LED_TASK
-            CODE    0576H     0044H     UNIT         ?C?LDIV
-            CODE    05BAH     003BH     UNIT         ?PR?INTER_TIMER_0?MAIN
-            CODE    05F5H     002DH     UNIT         ?PR?_UART_READ?UART1
-            CODE    0622H     002CH     UNIT         ?PR?_UART_WRITE?UART1
-            CODE    064EH     0024H     UNIT         ?C_INITSEG
-            CODE    0672H     0023H     UNIT         ?PR?UART_MONITOR?UART1
-            CODE    0695H     0019H     UNIT         ?PR?_DELAYS?MAIN
+            CODE    04EFH     0049H     UNIT         ?PR?UART_INTER?UART1
+            CODE    0538H     0048H     UNIT         ?PR?_WS2812WR?LED_TASK
+            CODE    0580H     0044H     UNIT         ?C?LDIV
+            CODE    05C4H     003BH     UNIT         ?PR?INTER_TIMER_0?MAIN
+            CODE    05FFH     002DH     UNIT         ?PR?_UART_READ?UART1
+            CODE    062CH     002CH     UNIT         ?PR?_UART_WRITE?UART1
+            CODE    0658H     0024H     UNIT         ?C_INITSEG
+            CODE    067CH     0023H     UNIT         ?PR?UART_MONITOR?UART1
+            CODE    069FH     0019H     UNIT         ?PR?_DELAYS?MAIN
 
 
 
@@ -92,8 +92,8 @@ SEGMENT                          DATA_GROUP
   +--> ?PR?_UART_CONFIG?UART1
   +--> ?PR?_WS2812WR?LED_TASK
   +--> ?PR?WAITING?LED_TASK
-  +--> ?PR?COMPLETE?LED_TASK
   +--> ?PR?_DELAYS?MAIN
+  +--> ?PR?COMPLETE?LED_TASK
 
 ?PR?_UART_CONFIG?UART1         0014H    0002H
 
@@ -119,7 +119,7 @@ SYMBOL TABLE OF MODULE:  .\object\WS2812 (MAIN)
   VALUE           TYPE          NAME
   ----------------------------------
 
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/17/2020  03:35:32  PAGE 3
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/11/2020  16:52:06  PAGE 3
 
 
   -------         MODULE        MAIN
@@ -131,7 +131,7 @@ SYMBOL TABLE OF MODULE:  .\object\WS2812 (MAIN)
   D:00B0H         PUBLIC        P3
   D:00C0H         PUBLIC        P4
   D:00C8H         PUBLIC        P5
-  C:0695H         PUBLIC        _delays
+  C:069FH         PUBLIC        _delays
   B:00A8H.7       PUBLIC        EA
   D:00E8H         PUBLIC        P6
   D:00F8H         PUBLIC        P7
@@ -143,7 +143,7 @@ SYMBOL TABLE OF MODULE:  .\object\WS2812 (MAIN)
   D:0098H         PUBLIC        SCON
   D:0089H         PUBLIC        TMOD
   D:0088H         PUBLIC        TCON
-  C:05BAH         PUBLIC        inter_timer_0
+  C:05C4H         PUBLIC        inter_timer_0
   B:0080H.0       PUBLIC        gnd
   B:00A8H.1       PUBLIC        ET0
   B:0080H.1       PUBLIC        key
@@ -158,14 +158,14 @@ SYMBOL TABLE OF MODULE:  .\object\WS2812 (MAIN)
   D:0005H         SYMBOL        i
   D:0004H         SYMBOL        j
   -------         ENDDO         
-  C:0695H         LINE#         13
-  C:0695H         LINE#         14
-  C:0695H         LINE#         16
-  C:069EH         LINE#         17
-  C:069EH         LINE#         18
-  C:06A6H         LINE#         19
-  C:06ADH         LINE#         20
-  C:06ADH         LINE#         21
+  C:069FH         LINE#         13
+  C:069FH         LINE#         14
+  C:069FH         LINE#         16
+  C:06A8H         LINE#         17
+  C:06A8H         LINE#         18
+  C:06B0H         LINE#         19
+  C:06B7H         LINE#         20
+  C:06B7H         LINE#         21
   -------         ENDPROC       _DELAYS
   -------         PROC          MAIN
   -------         DO            
@@ -179,7 +179,7 @@ SYMBOL TABLE OF MODULE:  .\object\WS2812 (MAIN)
   C:0351H         LINE#         31
   C:0354H         LINE#         32
   C:0357H         LINE#         33
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/17/2020  03:35:32  PAGE 4
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/11/2020  16:52:06  PAGE 4
 
 
   C:0359H         LINE#         34
@@ -199,17 +199,19 @@ SYMBOL TABLE OF MODULE:  .\object\WS2812 (MAIN)
   C:038EH         LINE#         50
   C:038EH         LINE#         51
   C:0391H         LINE#         52
-  C:0391H         LINE#         53
-  C:039DH         LINE#         54
-  C:03A5H         LINE#         55
-  C:03B0H         LINE#         56
-  C:03B0H         LINE#         57
-  C:03B0H         LINE#         58
-  C:03B3H         LINE#         59
-  C:03B6H         LINE#         60
-  C:03B6H         LINE#         62
-  C:03BDH         LINE#         63
-  C:03BFH         LINE#         64
+  C:039DH         LINE#         53
+  C:03A5H         LINE#         54
+  C:03AEH         LINE#         56
+  C:03B5H         LINE#         57
+  C:03B8H         LINE#         58
+  C:03BAH         LINE#         59
+  C:03BAH         LINE#         60
+  C:03BDH         LINE#         61
+  C:03C0H         LINE#         62
+  C:03C0H         LINE#         63
+  C:03C0H         LINE#         65
+  C:03C7H         LINE#         66
+  C:03C9H         LINE#         67
   -------         ENDPROC       MAIN
   -------         PROC          INTER_TIMER_0
   -------         DO            
@@ -217,30 +219,30 @@ SYMBOL TABLE OF MODULE:  .\object\WS2812 (MAIN)
   D:0017H         SYMBOL        stable
   D:0018H         SYMBOL        scnt
   -------         ENDDO         
-  C:05BAH         LINE#         67
-  C:05BEH         LINE#         71
-  C:05C4H         LINE#         72
-  C:05CAH         LINE#         73
-  C:05CEH         LINE#         74
+  C:05C4H         LINE#         70
+  C:05C8H         LINE#         74
   C:05CEH         LINE#         75
-  C:05DAH         LINE#         77
-  C:05DAH         LINE#         78
-  C:05DCH         LINE#         80
-  C:05DCH         LINE#         81
-  C:05DCH         LINE#         83
-  C:05E1H         LINE#         84
-  C:05E1H         LINE#         86
-  C:05E4H         LINE#         87
-  C:05E7H         LINE#         88
-  C:05EAH         LINE#         89
-  C:05EDH         LINE#         90
-  C:05F0H         LINE#         91
-  C:05F0H         LINE#         92
+  C:05D4H         LINE#         76
+  C:05D8H         LINE#         77
+  C:05D8H         LINE#         78
+  C:05E4H         LINE#         80
+  C:05E4H         LINE#         81
+  C:05E6H         LINE#         83
+  C:05E6H         LINE#         84
+  C:05E6H         LINE#         86
+  C:05EBH         LINE#         87
+  C:05EBH         LINE#         89
+  C:05EEH         LINE#         90
+  C:05F1H         LINE#         91
+  C:05F4H         LINE#         92
+  C:05F7H         LINE#         93
+  C:05FAH         LINE#         94
+  C:05FAH         LINE#         95
   -------         ENDPROC       INTER_TIMER_0
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/11/2020  16:52:06  PAGE 5
+
+
   -------         ENDMOD        MAIN
-
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/17/2020  03:35:32  PAGE 5
-
 
   -------         MODULE        UART1
   C:0000H         SYMBOL        _ICE_DUMMY_
@@ -256,23 +258,23 @@ SYMBOL TABLE OF MODULE:  .\object\WS2812 (MAIN)
   D:00A8H         PUBLIC        IE
   B:0020H.0       PUBLIC        rxd_complete
   B:00A8H.4       PUBLIC        ES
-  C:03C1H         PUBLIC        _uart_config
+  C:03CBH         PUBLIC        _uart_config
   D:00B8H         PUBLIC        IP
   B:0098H.0       PUBLIC        RI
   B:0098H.1       PUBLIC        TI
   D:00D8H         PUBLIC        CCON
   B:0020H.1       PUBLIC        rxd_overflow
-  C:0672H         PUBLIC        uart_monitor
+  C:067CH         PUBLIC        uart_monitor
   D:0099H         PUBLIC        SBUF
   D:0098H         PUBLIC        SCON
   D:0088H         PUBLIC        TCON
-  C:05F5H         PUBLIC        _uart_read
+  C:05FFH         PUBLIC        _uart_read
   D:008EH         PUBLIC        AUXR
-  C:04E5H         PUBLIC        uart_inter
+  C:04EFH         PUBLIC        uart_inter
   D:000EH         PUBLIC        cnt
   D:000FH         PUBLIC        rxd_index
   B:0020H.2       PUBLIC        rxd_flag
-  C:0622H         PUBLIC        _uart_write
+  C:062CH         PUBLIC        _uart_write
   B:0020H.3       PUBLIC        txd_flag
   D:00D6H         PUBLIC        T2H
   D:00D7H         PUBLIC        T2L
@@ -282,95 +284,95 @@ SYMBOL TABLE OF MODULE:  .\object\WS2812 (MAIN)
   D:00D0H         PUBLIC        PSW
   -------         PROC          _UART_CONFIG
   D:0014H         SYMBOL        baud
-  C:03C1H         LINE#         26
-  C:03C5H         LINE#         27
-  C:03C5H         LINE#         28
-  C:03CFH         LINE#         29
-  C:03CFH         LINE#         30
-  C:03EEH         LINE#         31
-  C:0420H         LINE#         32
-  C:0422H         LINE#         34
-  C:0422H         LINE#         35
-  C:0425H         LINE#         36
-  C:0428H         LINE#         37
-  C:0428H         LINE#         39
-  C:042AH         LINE#         41
-  C:042DH         LINE#         42
-  C:042FH         LINE#         43
-  C:0432H         LINE#         45
-  C:0435H         LINE#         46
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/17/2020  03:35:32  PAGE 6
+  C:03CBH         LINE#         26
+  C:03CFH         LINE#         27
+  C:03CFH         LINE#         28
+  C:03D9H         LINE#         29
+  C:03D9H         LINE#         30
+  C:03F8H         LINE#         31
+  C:042AH         LINE#         32
+  C:042CH         LINE#         34
+  C:042CH         LINE#         35
+  C:042FH         LINE#         36
+  C:0432H         LINE#         37
+  C:0432H         LINE#         39
+  C:0434H         LINE#         41
+  C:0437H         LINE#         42
+  C:0439H         LINE#         43
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/11/2020  16:52:06  PAGE 6
 
 
-  C:0438H         LINE#         48
+  C:043CH         LINE#         45
+  C:043FH         LINE#         46
+  C:0442H         LINE#         47
   -------         ENDPROC       _UART_CONFIG
   -------         PROC          _UART_WRITE
   D:0019H         SYMBOL        buf
-  C:0622H         LINE#         50
-  C:0628H         LINE#         51
-  C:0628H         LINE#         52
-  C:0633H         LINE#         53
-  C:0633H         LINE#         54
-  C:0636H         LINE#         55
-  C:0638H         LINE#         56
-  C:064BH         LINE#         57
-  C:064DH         LINE#         58
+  C:062CH         LINE#         49
+  C:0632H         LINE#         50
+  C:0632H         LINE#         51
+  C:063DH         LINE#         52
+  C:063DH         LINE#         53
+  C:0640H         LINE#         54
+  C:0642H         LINE#         55
+  C:0655H         LINE#         56
+  C:0657H         LINE#         57
   -------         ENDPROC       _UART_WRITE
   -------         PROC          _UART_READ
   D:001CH         SYMBOL        buf
   -------         DO            
   D:0007H         SYMBOL        i
   -------         ENDDO         
-  C:05F5H         LINE#         60
-  C:05FBH         LINE#         61
-  C:05FBH         LINE#         62
-  C:05FDH         LINE#         63
-  C:0603H         LINE#         64
-  C:0603H         LINE#         65
-  C:061BH         LINE#         66
-  C:061EH         LINE#         67
-  C:0621H         LINE#         68
+  C:05FFH         LINE#         59
+  C:0605H         LINE#         60
+  C:0605H         LINE#         61
+  C:0607H         LINE#         62
+  C:060DH         LINE#         63
+  C:060DH         LINE#         64
+  C:0625H         LINE#         65
+  C:0628H         LINE#         66
+  C:062BH         LINE#         67
   -------         ENDPROC       _UART_READ
   -------         PROC          UART_INTER
   -------         DO            
   D:0012H         SYMBOL        s
   -------         ENDDO         
-  C:04E5H         LINE#         76
-  C:04E9H         LINE#         78
-  C:04ECH         LINE#         79
-  C:04ECH         LINE#         80
-  C:04EFH         LINE#         82
-  C:04F1H         LINE#         83
-  C:0508H         LINE#         84
-  C:0508H         LINE#         85
-  C:050DH         LINE#         86
-  C:0512H         LINE#         87
-  C:0517H         LINE#         88
-  C:051CH         LINE#         89
-  C:0521H         LINE#         90
-  C:0524H         LINE#         91
-  C:0524H         LINE#         92
-  C:0524H         LINE#         94
-  C:0527H         LINE#         95
-  C:0527H         LINE#         96
-  C:0529H         LINE#         97
-  C:0529H         LINE#         98
+  C:04EFH         LINE#         75
+  C:04F3H         LINE#         77
+  C:04F6H         LINE#         78
+  C:04F6H         LINE#         79
+  C:04F9H         LINE#         80
+  C:04FBH         LINE#         82
+  C:0512H         LINE#         83
+  C:0512H         LINE#         84
+  C:0517H         LINE#         85
+  C:051CH         LINE#         86
+  C:0521H         LINE#         87
+  C:0526H         LINE#         88
+  C:052BH         LINE#         89
+  C:052EH         LINE#         90
+  C:052EH         LINE#         91
+  C:052EH         LINE#         93
+  C:0531H         LINE#         94
+  C:0531H         LINE#         95
+  C:0533H         LINE#         96
+  C:0533H         LINE#         97
   -------         ENDPROC       UART_INTER
   -------         PROC          UART_MONITOR
-  C:0672H         LINE#         100
-  C:0672H         LINE#         101
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/17/2020  03:35:32  PAGE 7
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/11/2020  16:52:06  PAGE 7
 
 
-  C:0672H         LINE#         102
-  C:0677H         LINE#         103
-  C:067EH         LINE#         104
-  C:067EH         LINE#         105
-  C:0681H         LINE#         106
-  C:0683H         LINE#         107
-  C:0692H         LINE#         108
-  C:0694H         LINE#         109
-  C:0694H         LINE#         110
+  C:067CH         LINE#         99
+  C:067CH         LINE#         100
+  C:067CH         LINE#         101
+  C:0681H         LINE#         102
+  C:0688H         LINE#         103
+  C:0688H         LINE#         104
+  C:068BH         LINE#         105
+  C:068DH         LINE#         106
+  C:069CH         LINE#         107
+  C:069EH         LINE#         108
+  C:069EH         LINE#         109
   -------         ENDPROC       UART_MONITOR
   -------         ENDMOD        UART1
 
@@ -385,19 +387,19 @@ SYMBOL TABLE OF MODULE:  .\object\WS2812 (MAIN)
   D:00E8H         PUBLIC        P6
   D:00F8H         PUBLIC        P7
   D:00A8H         PUBLIC        IE
-  B:0080H.3       PUBLIC        DO
+  B:0080H.2       PUBLIC        DO
   D:00B8H         PUBLIC        IP
   C:0026H         PUBLIC        array
   D:000CH         PUBLIC        color
-  C:0532H         PUBLIC        _WS2812WR
+  C:053CH         PUBLIC        _WS2812WR
   D:000DH         PUBLIC        state
   D:00D8H         PUBLIC        CCON
   C:0003H         PUBLIC        delay1us
   D:0098H         PUBLIC        SCON
   D:0088H         PUBLIC        TCON
   C:000EH         PUBLIC        arr
-  C:049BH         PUBLIC        complete
-  C:0439H         PUBLIC        waiting
+  C:04A5H         PUBLIC        complete
+  C:0443H         PUBLIC        waiting
   D:00D0H         PUBLIC        PSW
   -------         PROC          DELAY1US
   -------         DO            
@@ -408,47 +410,47 @@ SYMBOL TABLE OF MODULE:  .\object\WS2812 (MAIN)
   C:0003H         LINE#         17
   C:0007H         LINE#         18
   -------         ENDPROC       DELAY1US
-  C:052EH         SYMBOL        L?0087
+  C:0538H         SYMBOL        L?0087
   -------         PROC          L?0086
   -------         ENDPROC       L?0086
-  C:052EH         SYMBOL        L?0087
+  C:0538H         SYMBOL        L?0087
   -------         PROC          _WS2812WR
   D:0001H         SYMBOL        Re
   D:0005H         SYMBOL        Gr
   D:0003H         SYMBOL        Bl
   -------         DO            
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/11/2020  16:52:06  PAGE 8
+
+
   D:0004H         SYMBOL        color
   D:0006H         SYMBOL        dat
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/17/2020  03:35:32  PAGE 8
-
-
   D:0002H         SYMBOL        i
   -------         ENDDO         
-  C:0532H         LINE#         26
-  C:0534H         LINE#         27
-  C:0534H         LINE#         28
-  C:0538H         LINE#         29
-  C:053AH         LINE#         31
-  C:0540H         LINE#         32
-  C:0540H         LINE#         33
-  C:0545H         LINE#         34
-  C:054AH         LINE#         35
-  C:054FH         LINE#         36
-  C:0555H         LINE#         37
-  C:0555H         LINE#         38
-  C:0559H         LINE#         39
-  C:0559H         LINE#         40
-  C:055EH         LINE#         41
-  C:0561H         LINE#         42
-  C:0563H         LINE#         44
-  C:0563H         LINE#         45
-  C:0566H         LINE#         46
-  C:056BH         LINE#         47
-  C:056BH         LINE#         48
-  C:056FH         LINE#         49
-  C:0571H         LINE#         50
-  C:0573H         LINE#         51
-  C:0575H         LINE#         52
+  C:053CH         LINE#         26
+  C:053EH         LINE#         27
+  C:053EH         LINE#         28
+  C:0542H         LINE#         29
+  C:0544H         LINE#         31
+  C:054AH         LINE#         32
+  C:054AH         LINE#         33
+  C:054FH         LINE#         34
+  C:0554H         LINE#         35
+  C:0559H         LINE#         36
+  C:055FH         LINE#         37
+  C:055FH         LINE#         38
+  C:0563H         LINE#         39
+  C:0563H         LINE#         40
+  C:0568H         LINE#         41
+  C:056BH         LINE#         42
+  C:056DH         LINE#         44
+  C:056DH         LINE#         45
+  C:0570H         LINE#         46
+  C:0575H         LINE#         47
+  C:0575H         LINE#         48
+  C:0579H         LINE#         49
+  C:057BH         LINE#         51
+  C:057DH         LINE#         52
+  C:057FH         LINE#         53
   -------         ENDPROC       _WS2812WR
   -------         PROC          ARRAY
   -------         DO            
@@ -457,36 +459,33 @@ SYMBOL TABLE OF MODULE:  .\object\WS2812 (MAIN)
   D:000AH         SYMBOL        i
   D:000BH         SYMBOL        j
   -------         ENDDO         
-  C:0026H         LINE#         59
   C:0026H         LINE#         60
-  C:0026H         LINE#         67
-  C:0029H         LINE#         68
+  C:0026H         LINE#         61
+  C:0026H         LINE#         68
   C:0029H         LINE#         69
-  C:002CH         LINE#         70
+  C:0029H         LINE#         70
   C:002CH         LINE#         71
-  C:0038H         LINE#         72
+  C:002CH         LINE#         72
   C:0038H         LINE#         73
-  C:0064H         LINE#         74
+  C:0038H         LINE#         74
   C:0064H         LINE#         75
   C:006EH         LINE#         76
   C:0073H         LINE#         77
   C:0076H         LINE#         78
   C:007AH         LINE#         79
-  C:007DH         LINE#         80
-  C:0087H         LINE#         81
+  C:007DH         LINE#         81
   C:0087H         LINE#         82
-  C:00E7H         LINE#         83
+  C:0087H         LINE#         83
   C:00E7H         LINE#         84
   C:00F4H         LINE#         85
   C:00F9H         LINE#         86
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/17/2020  03:35:32  PAGE 9
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/11/2020  16:52:06  PAGE 9
 
 
   C:00FBH         LINE#         87
   C:00FFH         LINE#         88
-  C:0101H         LINE#         90
   C:0101H         LINE#         91
-  C:0161H         LINE#         92
+  C:0101H         LINE#         92
   C:0161H         LINE#         93
   C:016DH         LINE#         94
   C:0172H         LINE#         95
@@ -494,58 +493,56 @@ SYMBOL TABLE OF MODULE:  .\object\WS2812 (MAIN)
   C:017BH         LINE#         97
   C:017BH         LINE#         98
   C:0187H         LINE#         99
-  C:0193H         LINE#         100
-  C:0195H         LINE#         101
-  C:019CH         LINE#         102
+  C:0193H         LINE#         101
+  C:0195H         LINE#         102
   C:019CH         LINE#         103
-  C:019FH         LINE#         104
-  C:01A1H         LINE#         105
-  C:01ABH         LINE#         106
+  C:019CH         LINE#         104
+  C:019FH         LINE#         105
+  C:01A1H         LINE#         106
   C:01ABH         LINE#         107
+  C:01ABH         LINE#         108
   -------         ENDPROC       ARRAY
   -------         PROC          COMPLETE
   -------         DO            
   D:0014H         SYMBOL        i
   D:0015H         SYMBOL        j
   -------         ENDDO         
-  C:049BH         LINE#         109
-  C:049BH         LINE#         110
-  C:049BH         LINE#         112
-  C:049EH         LINE#         113
-  C:049EH         LINE#         114
-  C:04A1H         LINE#         115
-  C:04A1H         LINE#         116
-  C:04ADH         LINE#         117
-  C:04B5H         LINE#         118
-  C:04BEH         LINE#         119
-  C:04C5H         LINE#         120
-  C:04D4H         LINE#         121
-  C:04DBH         LINE#         122
-  C:04E4H         LINE#         123
+  C:04A5H         LINE#         110
+  C:04A5H         LINE#         111
+  C:04A5H         LINE#         113
+  C:04A8H         LINE#         114
+  C:04ABH         LINE#         115
+  C:04B7H         LINE#         116
+  C:04BFH         LINE#         117
+  C:04C8H         LINE#         118
+  C:04CFH         LINE#         119
+  C:04DEH         LINE#         120
+  C:04E5H         LINE#         121
+  C:04EEH         LINE#         122
   -------         ENDPROC       COMPLETE
   -------         PROC          WAITING
   -------         DO            
   D:0014H         SYMBOL        i
   -------         ENDDO         
-  C:0439H         LINE#         125
-  C:0439H         LINE#         126
-  C:0439H         LINE#         129
-  C:0448H         LINE#         130
-  C:044BH         LINE#         131
-  C:044BH         LINE#         132
-  C:0457H         LINE#         133
-  C:045FH         LINE#         134
-  C:0468H         LINE#         135
-  C:0477H         LINE#         136
-  C:047AH         LINE#         137
-  C:047DH         LINE#         138
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/17/2020  03:35:32  PAGE 10
+  C:0443H         LINE#         124
+  C:0443H         LINE#         125
+  C:0443H         LINE#         128
+  C:0452H         LINE#         129
+  C:0455H         LINE#         130
+  C:0455H         LINE#         131
+  C:0461H         LINE#         132
+  C:0469H         LINE#         133
+  C:0472H         LINE#         135
+  C:0481H         LINE#         137
+  C:0484H         LINE#         139
+  C:0487H         LINE#         140
+  C:0487H         LINE#         141
+  C:0493H         LINE#         142
+  C:049BH         LINE#         143
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/11/2020  16:52:06  PAGE 10
 
 
-  C:047DH         LINE#         139
-  C:0489H         LINE#         140
-  C:0491H         LINE#         141
-  C:049AH         LINE#         142
+  C:04A4H         LINE#         144
   -------         ENDPROC       WAITING
   -------         ENDMOD        LED_TASK
 
@@ -592,19 +589,19 @@ SYMBOL TABLE OF MODULE:  .\object\WS2812 (MAIN)
   -------         ENDMOD        ?C?CSTPTR
 
   -------         MODULE        ?C?SLDIV
-  C:0576H         PUBLIC        ?C?SLDIV
+  C:0580H         PUBLIC        ?C?SLDIV
   -------         ENDMOD        ?C?SLDIV
 
   -------         MODULE        ?C?SLSHR
   C:01D7H         PUBLIC        ?C?SLSHR
   -------         ENDMOD        ?C?SLSHR
 
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/17/2020  03:35:32  PAGE 11
-
-
   -------         MODULE        ?C?ULDIV
   C:0227H         PUBLIC        ?C?ULDIV
   -------         ENDMOD        ?C?ULDIV
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/11/2020  16:52:06  PAGE 11
+
+
 
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_UART_WRITE?UART1
@@ -615,5 +612,5 @@ SYMBOL TABLE OF MODULE:  .\object\WS2812 (MAIN)
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?UART_MONITOR?UART1
 
-Program Size: data=32.4 xdata=20 code=1701
+Program Size: data=32.4 xdata=20 code=1711
 LINK/LOCATE RUN COMPLETE.  3 WARNING(S),  0 ERROR(S)

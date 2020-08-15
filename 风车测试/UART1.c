@@ -39,19 +39,18 @@ void uart_config(unsigned int baud)
 	EA=1;
 
 	SCON=0X50;			  //开启接收
-  ES=1;			 
+	ES=1;			 
 	AUXR|=0X15;			  //T2作为波特率发生器,T2速度加倍,T2开始计时
 
-  T2L=TL2_ini;		  //初值
+	T2L=TL2_ini;		  //初值
 	T2H=TH2_ini;
-
 }
 
 void uart_write(unsigned char *buf)
 {
     while(*buf!='\0')
     {
-      while(txd_flag);
+		while(txd_flag);
 	    txd_flag=1;
 	    SBUF=*buf++;	  
     }
@@ -75,12 +74,12 @@ extern void waiting();
 
 void uart_inter() interrupt 4
 {
-  if(RI) 
-  {
+	if(RI) 
+	{
 		unsigned char s=SBUF;
-		
 		RI=0;
-	  switch(s)
+		
+		switch(s)
 		{
 			case 'r': color=1;break;
 			case 'b': color=2;break;
@@ -91,10 +90,10 @@ void uart_inter() interrupt 4
 		}
 	}
 
-  if(TI)
+	if(TI)
 	{
-	  TI=0; 
-  }
+		TI=0; 
+	}
 }
   
 void uart_monitor()					  //串口空闲检测，在定时器中调用

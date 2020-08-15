@@ -9,7 +9,7 @@
 #include "led_task.h"
 #define Fosc 11059200
 
-sbit DO = P0^3;//数据输出口口
+sbit DO = P0^2;//数据输出口口
 
 void delay1us()
 {
@@ -30,9 +30,9 @@ void WS2812WR(unsigned char Re,unsigned char Gr,unsigned char Bl)
 	//依次输出24bit GRB数据
 	while(color--)
 	{
-	  if(color==2)dat=Gr;
-	  if(color==1)dat=Re;
-	  if(color==0)dat=Bl;
+		if(color==2)dat=Gr;
+		if(color==1)dat=Re;
+		if(color==0)dat=Bl;
 		while(i--)
 		{
 			if(dat & 0X80)//写1
@@ -45,16 +45,17 @@ void WS2812WR(unsigned char Re,unsigned char Gr,unsigned char Bl)
 				DO=1;_nop_();
 				DO=0;delay1us();
 			}
-			  dat <<= 1;
+			dat <<= 1;
 		}
+		
         i=8;
-  }
+	}
 }
 
-unsigned char code arr[3][5]={{2,0,1,0,2},
-                     {0,2,2,2,0},
-										 {1,1,0,1,1}};
-unsigned char color = 1,state = 1;
+unsigned char code arr[3][5]={	{2,0,1,0,2},
+								{0,2,2,2,0},
+								{1,1,0,1,1}};
+unsigned char color = 1,state = 2;
 
 void array()
 {
@@ -70,33 +71,33 @@ void array()
 		{
 			if(cnt%3==1)
 			{
-				if(j%3==arr[cnt/3][i])
-				{
-		      if(color==2) WS2812WR(0,0,250);
-	      	else WS2812WR(250,0,0);
-      	}
-		    else WS2812WR(0,0,0);
+				if(j%3==arr[cnt/3][i]){
+					if(color==2) WS2812WR(0,0,250);
+					else WS2812WR(250,0,0);
+				}
+				else WS2812WR(0,0,0);
 			}
+			
 			else if(cnt%3==0)
 			{
-				if((j%3==arr[cnt/3][i])||(j%3==arr[(cnt/3>0)?(cnt/3-1):(cnt/3+2)][i])) 
-				{
-		      if(color==2) WS2812WR(0,0,100);
-	      	else WS2812WR(100,0,0);
-	      }
-		    else WS2812WR(0,0,0);
+				if((j%3==arr[cnt/3][i])||(j%3==arr[(cnt/3>0)?(cnt/3-1):(cnt/3+2)][i])){
+					if(color==2) WS2812WR(0,0,100);
+					else WS2812WR(100,0,0);
+				}
+				else WS2812WR(0,0,0);
 			}
+			
 			else
 			{
-				if((j%3==arr[cnt/3][i])||(j%3==arr[(cnt/3<2)?(cnt/3+1):(cnt/3-2)][i])) 
-				{
-		      if(color==2) WS2812WR(0,0,100);
-	      	else WS2812WR(100,0,0);
-	      }
-		    else WS2812WR(0,0,0);
+				if((j%3==arr[cnt/3][i])||(j%3==arr[(cnt/3<2)?(cnt/3+1):(cnt/3-2)][i])){
+					if(color==2) WS2812WR(0,0,100);
+					else WS2812WR(100,0,0);
+				}
+				else WS2812WR(0,0,0);
 			}
 		}
 	}
+	
 	times++;
 	if(times>=1)
 	{
@@ -109,14 +110,12 @@ void array()
 void complete()
 {
 	unsigned char i,j;
-	for(j=0;j<5;j++)
-	{
-    for(i=0;i<253;i++)
-    {
-		  if(color==2) WS2812WR(0,0,250);
-		  else WS2812WR(250,0,0);
-	  }
-	  delays(249);
+	for(j=0;j<5;j++){
+		for(i=0;i<253;i++){
+			if(color==2) WS2812WR(0,0,250);
+			else WS2812WR(250,0,0);
+		}
+		delays(249);
 		for(i=0;i<253;i++) WS2812WR(0,0,0);
 		delays(249);
 	}
@@ -132,8 +131,11 @@ void waiting()
 		if(color==2) WS2812WR(0,0,250);
 		else WS2812WR(250,0,0);
 	}
+	
 	for(i=67;i<97;i++) WS2812WR(0,0,0);
+	
 	array();
+	
 	for(i=222;i<253;i++)
 	{
 		if(color==2) WS2812WR(0,0,250);
