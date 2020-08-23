@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   LED_TASK                                                              07/13/2020 13:20:59 PAGE 1   
+C51 COMPILER V9.54   LED_TASK                                                              08/15/2020 20:12:40 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE LED_TASK
@@ -13,13 +13,13 @@ line level    source
    3          
    4          #endif
    5          
-   6          #include <STC15F2K60S2.H>
+   6          #include <STC8.H>
    7          #include <intrins.h>
    8          #include "UART1.h"
    9          #include "led_task.h"
   10          #define Fosc 11059200
   11          
-  12          sbit DO = P0^1;//数据输出口口
+  12          sbit DO = P1^6;//数据输出口口
   13          
   14          void delay1us()
   15          {
@@ -62,7 +62,7 @@ line level    source
   52   1      }
   53          
   54          unsigned char code arr[3][5]={{2,0,1,0,2},
-C51 COMPILER V9.54   LED_TASK                                                              07/13/2020 13:20:59 PAGE 2   
+C51 COMPILER V9.54   LED_TASK                                                              08/15/2020 20:12:40 PAGE 2   
 
   55                               {0,2,2,2,0},
   56                                                                                           {1,1,0,1,1}};
@@ -126,7 +126,7 @@ line level    source
  114   2          for(i=0;i<253;i++)
  115   2          {
  116   3                        if(color==2) WS2812WR(0,0,250);
-C51 COMPILER V9.54   LED_TASK                                                              07/13/2020 13:20:59 PAGE 3   
+C51 COMPILER V9.54   LED_TASK                                                              08/15/2020 20:12:40 PAGE 3   
 
  117   3                        else WS2812WR(250,0,0);
  118   3                }

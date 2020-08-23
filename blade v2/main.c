@@ -1,31 +1,37 @@
 /***WS2812驱动程序***/
 /*作者：YUAN HUA FEI*/
 #include <STC8.H>
+#include <intrins.h>
 #include "UART1.h"
 #include "led_task.h"
 
-#define  num 77//灯泡个数
+#define  num 253//灯泡个数
 
-sbit DO = P1^6;//数据输出口口
+sbit DO = P1^6;//数据输出
 sbit key = P1^7;
 sbit gnd = P0^0;
 
 void delays(unsigned int m)
 {
-  unsigned char i,j;
-  while(--m)
-  {
-	  for(i=6;i>0;i--)
-	    for(j=250;j>0;j--);
-  }
+	do{
+		unsigned char i, j;
+
+		_nop_();
+		_nop_();
+		i = 15;
+		j = 90;
+		do
+		{
+			while (--j);
+		} while (--i);
+	} while (--m);
 }
 
 void main()
 {
 	unsigned char i;
 	
-	P0M0=0X00;P0M1=0;
-	P3M0=0;P3M1=0;
+	P0M0=0XFF;P0M1=0;
 	gnd=0;key=1;
 	
 	TMOD=0X00;
@@ -40,32 +46,27 @@ void main()
 	while(1)
 	{
 		EA=0;
-		/*switch(state)
+		switch(state)
 		{
 			case 0:
-				for(i=0;i<30;i++) WS2812WR(0,250,0);
-			  break;
+				for(i=0;i<253;i++) WS2812WR(0,0,0);
+				break;
 			case 1:
 				waiting();
-			  break;
+				break;
 			case 2:
-	      for(i=0;i<253;i++) 
-			  {
-	       	if(color==2) WS2812WR(0,0,250);
-		      else WS2812WR(250,0,0);
-	      }
+				for(i=0;i<253;i++) {
+					if(color==2) WS2812WR(0,0,250);
+					else WS2812WR(250,0,0);
+				}
 				break;
 			case 3:
 				complete();
-			  state=0;
-		}*/
-		
-		for(i=0;i < num;i++){
-			if(key) WS2812WR(250,0,0);
-			else WS2812WR(0,0,250);
+				state=0;
+				break;
 		}
 		
-		delays(100);
+		delays(50);
 		EA=1;
 	}
 }
