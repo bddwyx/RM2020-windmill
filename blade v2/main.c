@@ -42,6 +42,7 @@ void main()
 	TR0 = 1;
 	
 	uart_config(115200);
+	SBUF = 'A';
 
 	while(1)
 	{
@@ -56,7 +57,8 @@ void main()
 				break;
 			case 2:
 				for(i=0;i<253;i++) {
-					if(color==2) WS2812WR(0,0,250);
+					if(color == 3) WS2812WR(color_buf[0], color_buf[1], color_buf[2]);
+					else if(color==2) WS2812WR(0,0,250);
 					else WS2812WR(250,0,0);
 				}
 				break;

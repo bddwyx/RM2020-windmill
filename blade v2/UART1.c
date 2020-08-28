@@ -23,6 +23,8 @@ unsigned char pdata buf_rxd[RXD_MAX];			 //接收缓冲
 unsigned char TH2_ini,TL2_ini;
 unsigned char cnt=0;						 //超时计数器
 
+unsigned char color_receive_mode = 0;
+
 void uart_config(unsigned int baud)
 {
     if(baud!=0x8400)
@@ -79,14 +81,27 @@ void uart_inter() interrupt 4
 		unsigned char s=SBUF;
 		RI=0;
 		
-		switch(s)
-		{
-			case 'r': color=1;break;
-			case 'b': color=2;break;
-			case '0': state=0;break;
-			case '1': state=1;break;
-			case '2': state=2;break;
-			case '3': state=3;break;
+		if(color_receive_mode){
+			color_buf[color_receive_mode - 1] = SBUF;
+			color_receive_mode++;
+			if(color_receive_mode > 3){
+				color_receive_mode = 0;
+				color=3;
+			}
+		}
+		else {
+			switch(s)
+			{
+				case 'r': color=1;break;
+				case 'b': color=2;break;
+				case 'e': color=3;break;
+				case '0': state=0;break;
+				case '1': state=1;break;
+				case '2': state=2;break;
+				case '3': state=3;break;
+				case 'C': color_receive_mode = 1;SBUF='C';break;
+				case 'A': SBUF = 'A';break;
+			}
 		}
 	}
 

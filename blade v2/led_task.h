@@ -12,5 +12,6 @@ extern void delays(unsigned int m);
 
 extern unsigned char code arr[3][5];
 extern unsigned char color,state;
+extern unsigned char color_buf[3];
 
 #endif

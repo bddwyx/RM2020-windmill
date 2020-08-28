@@ -11,6 +11,8 @@
 
 sbit DO = P1^6;//数据输出口口
 
+unsigned char color_buf[3];
+
 void delay1us()
 {
     unsigned char a;
@@ -72,7 +74,8 @@ void array()
 			if(cnt%3==1)
 			{
 				if(j%3==arr[cnt/3][i]){
-					if(color==2) WS2812WR(0,0,250);
+					if(color == 3) WS2812WR(color_buf[0], color_buf[1], color_buf[2]);
+					else if(color==2) WS2812WR(0,0,250);
 					else WS2812WR(250,0,0);
 				}
 				else WS2812WR(0,0,0);
@@ -81,8 +84,9 @@ void array()
 			else if(cnt%3==0)
 			{
 				if((j%3==arr[cnt/3][i])||(j%3==arr[(cnt/3>0)?(cnt/3-1):(cnt/3+2)][i])){
-					if(color==2) WS2812WR(0,0,100);
-					else WS2812WR(100,0,0);
+					if(color == 3) WS2812WR(color_buf[0], color_buf[1], color_buf[2]);
+					else if(color==2) WS2812WR(0,0,250);
+					else WS2812WR(250,0,0);
 				}
 				else WS2812WR(0,0,0);
 			}
@@ -90,8 +94,9 @@ void array()
 			else
 			{
 				if((j%3==arr[cnt/3][i])||(j%3==arr[(cnt/3<2)?(cnt/3+1):(cnt/3-2)][i])){
-					if(color==2) WS2812WR(0,0,100);
-					else WS2812WR(100,0,0);
+					if(color == 3) WS2812WR(color_buf[0], color_buf[1], color_buf[2]);
+					else if(color==2) WS2812WR(0,0,250);
+					else WS2812WR(250,0,0);
 				}
 				else WS2812WR(0,0,0);
 			}
@@ -112,7 +117,8 @@ void complete()
 	unsigned char i,j;
 	for(j=0;j<5;j++){
 		for(i=0;i<253;i++){
-			if(color==2) WS2812WR(0,0,250);
+			if(color == 3) WS2812WR(color_buf[0], color_buf[1], color_buf[2]);
+			else if(color==2) WS2812WR(0,0,250);
 			else WS2812WR(250,0,0);
 		}
 		delays(249);
@@ -128,7 +134,8 @@ void waiting()
 	for(i=0;i<32;i++) WS2812WR(0,0,0);
 	for(i=32;i<67;i++) 
 	{
-		if(color==2) WS2812WR(0,0,250);
+		if(color == 3) WS2812WR(color_buf[0], color_buf[1], color_buf[2]);
+		else if(color==2) WS2812WR(0,0,250);
 		else WS2812WR(250,0,0);
 	}
 	
@@ -138,7 +145,8 @@ void waiting()
 	
 	for(i=222;i<253;i++)
 	{
-		if(color==2) WS2812WR(0,0,250);
+		if(color == 3) WS2812WR(color_buf[0], color_buf[1], color_buf[2]);
+		else if(color==2) WS2812WR(0,0,250);
 		else WS2812WR(250,0,0);
 	}
 }
