@@ -1,6 +1,0 @@
-".\object\main.obj",
-".\object\UART1.obj",
-".\object\led_task.obj",
-".\object\STARTUP.obj" 
-TO ".\object\WS2812" 
-PRINT(".\listing\WS2812.m51") RAMSIZE(256) 

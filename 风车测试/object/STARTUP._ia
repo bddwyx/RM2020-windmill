@@ -1,1 +1,0 @@
-"startup\STARTUP.A51" SET (SMALL) DEBUG PRINT(.\listing\STARTUP.lst) OBJECT(.\object\STARTUP.obj) EP
